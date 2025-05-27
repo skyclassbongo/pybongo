@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kalkuleta ya Django + JavaScript</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input, select {
+      padding: 10px;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Kalkuleta Rahisi kwa Django na JavaScript</h2>
+
+  <form onsubmit="return false;">
+    <input type="number" id="namba1" placeholder="Namba ya Kwanza" required>
+    <select id="operator">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+    <input type="number" id="namba2" placeholder="Namba ya Pili" required>
+    <button onclick="hesabu()">Hesabu</button>
+  </form>
+
+  <h3>Matokeo: <span id="matokeo">--</span></h3>
+
+  <script>
+    function hesabu() {
+      const namba1 = parseFloat(document.getElementById('namba1').value);
+      const namba2 = parseFloat(document.getElementById('namba2').value);
+      const operator = document.getElementById('operator').value;
+      let matokeo;
+
+      if (isNaN(namba1) || isNaN(namba2)) {
+        alert("Tafadhali jaza namba zote mbili");
+        return;
+      }
+
+      switch (operator) {
+        case '+':
+          matokeo = namba1 + namba2;
+          break;
+        case '-':
+          matokeo = namba1 - namba2;
+          break;
+        case '*':
+          matokeo = namba1 * namba2;
+          break;
+        case '/':
+          if (namba2 === 0) {
+            alert("Huwezi kugawa kwa sifuri");
+            return;
+          }
+          matokeo = namba1 / namba2;
+          break;
+        default:
+          matokeo = "Hitilafu";
+      }
+
+      document.getElementById('matokeo').innerText = matokeo;
+    }
+  </script>
+</body>
+</html>

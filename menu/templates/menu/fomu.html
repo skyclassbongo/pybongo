@@ -1,0 +1,16 @@
+<form onsubmit="return validateForm()" method="post">
+  {% csrf_token %}
+  <input type="text" id="jina" name="jina">
+  <input type="submit" value="Tuma">
+</form>
+
+<script>
+function validateForm() {
+  let jina = document.getElementById("jina").value;
+  if (jina == "") {
+    alert("Tafadhali andika jina lako");
+    return false; // Zuia fomu isitume
+  }
+  return true;
+}
+</script>

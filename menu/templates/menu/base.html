@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Pybongo  {% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+ <meta name="description" content="{% block description %} hii ni project ya Pybongo  {% endblock %}">
+</head>
+<body>
+<nav>
+<a href="/about/">about</a>
+<a href="/home/">home</a>
+<a href="/contact/">contact</a>
+<a href="/blog/">blog</a>
+</nav>
+
+<div>
+    {% block content %}
+
+
+    {% endblock %}
+</div>
+</body>
+</html>
+
